@@ -16,7 +16,9 @@ body {
   background-size: cover;
   font-family: 'Times New Roman', Times, serif;
 }
-
+a{
+  text-decoration: none;
+}
 .flex {
   display: flex;
   align-items: center;
