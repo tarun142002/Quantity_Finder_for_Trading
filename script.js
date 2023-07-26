@@ -4,21 +4,22 @@ let entry = document.getElementById("Entry");
 let sl = document.getElementById("sl");
 let slPerStock = document.getElementById("sl-per-stock");
 let quantityInput = document.getElementById("quantity");
-
+let finalLossInput = document.getElementById("final_loss");
 
 document.querySelector("button").addEventListener("click", calculateQuantity);
 
 function calculateQuantity(event) {
   event.preventDefault();
-  let capitalValue = parseFloat(capital.value);
-  let perTradeSlValue = parseFloat(perTradeSl.value);
-  let entryValue = parseFloat(entry.value);
-  let slValue = parseFloat(sl.value);
+  let capitalValue = parseInt(capital.value);
+  let perTradeSlValue = parseInt(perTradeSl.value);
+  let entryValue = parseInt(entry.value);
+  let slValue = parseInt(sl.value);
 
   let slPerStockValue = entryValue - slValue;
-  let quantityValue = perTradeSlValue / slPerStockValue;
+  let quantityValue = Math.floor(perTradeSlValue / slPerStockValue);
+  let finalLossValue = slPerStockValue * quantityValue;
 
-  slPerStock.value = slPerStockValue;
-  quantityInput.value = quantityValue;
+  slPerStock.value = parseInt(slPerStockValue);
+  quantityInput.value = parseInt(quantityValue);
+  finalLossInput.value = parseInt(finalLossValue);
 }
-
